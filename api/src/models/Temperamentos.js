@@ -4,22 +4,9 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "raza",
+    "temperamentos",
     {
       name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        /* unique: true, */
-      },
-      height: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      weight: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      life_span: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -27,8 +14,5 @@ module.exports = (sequelize) => {
     { timestamps: false }
   );
 };
-/* ID *
-Nombre *
-Altura *
-Peso *
-Años de vida */
+/* ID
+Nombre */

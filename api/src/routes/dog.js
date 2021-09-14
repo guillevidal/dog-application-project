@@ -16,11 +16,14 @@ router.post("/", async function (req, res) {
       { fields: ["name", "height", "weight", "life_span"] }
     );
     if (createDog) {
-      return res.json({ mensaje: "esta vivo", data: createDog });
+      return res.json({ createDog });
     }
   } catch (e) {
-    console.log(e);
-    res.status(500).json({ mensaje: "algo esta mal" });
+    res
+      .status(500)
+      .send(
+        "NO PUDIMOS CREAR AL PERRITO MALVADO AGARRAS CARAVANA BASUUURA, sepa comprender"
+      );
   }
 });
 
