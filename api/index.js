@@ -21,7 +21,7 @@ const axios = require("axios");
 const { Raza } = require("./src/db.js");
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-
+// aca configuramos todo
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
   let dogsApi = await axios.get("https://api.thedogapi.com/v1/breeds");

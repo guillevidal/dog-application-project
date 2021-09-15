@@ -24,7 +24,17 @@ router.get("/", async function (req, res, next) {
   } */
 });
 
-//-----Obtener un listado de las razas de perro que contengan la palabra ingresada como query parameter
-//Si no existe ninguna raza de perro mostrar un mensaje adecuado----
+router.get("/:idRaza", async (req, res) => {
+  const { idRaza } = req.params;
+  try {
+    let idDog = await Raza.findOne({ where: { id: idRaza } });
+    if (idDog) {
+      res.json(idDog);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404).json(error);
+  }
+});
 
 module.exports = router;
