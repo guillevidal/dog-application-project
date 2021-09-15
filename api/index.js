@@ -32,6 +32,7 @@ conn.sync({ force: true }).then(async () => {
         height: e.height.metric,
         weight: e.weight.metric,
         life_span: e.life_span,
+        image: e.image.url,
       }))
   );
   server.listen(3001, () => {

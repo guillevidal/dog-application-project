@@ -4,7 +4,7 @@ const { Raza } = require("../db");
 const router = Router();
 
 router.post("/", async function (req, res) {
-  const { name, height, weight, life_span } = req.body;
+  const { name, height, weight, life_span, image } = req.body;
   try {
     let createDog = await Raza.create(
       {
@@ -12,8 +12,9 @@ router.post("/", async function (req, res) {
         height: height,
         weight: weight,
         life_span: life_span,
+        image: image,
       },
-      { fields: ["name", "height", "weight", "life_span"] }
+      { fields: ["name", "height", "weight", "life_span", "image"] }
     );
     if (createDog) {
       return res.json({ createDog });
