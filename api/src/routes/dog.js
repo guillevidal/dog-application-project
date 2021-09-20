@@ -23,7 +23,7 @@ router.post("/", async function (req, res) {
     res
       .status(500)
       .send(
-        "NO PUDIMOS CREAR AL PERRITO MALVADO AGARRAS CARAVANA BASUUURA, sepa comprender"
+        "NO PUDIMOS CREAR AL PERRITO MALVADO AGARRAS CARAVANA BASUUURA"
       );
   }
 });

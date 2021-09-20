@@ -30,8 +30,4 @@ module.exports = (sequelize) => {
     { timestamps: false }
   );
 };
-/* ID *
-Nombre *
-Altura *
-Peso *
-Años de vida */
+
