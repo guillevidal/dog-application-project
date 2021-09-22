@@ -1,0 +1,12 @@
+.contenedorLa {
+  background-image: url("./img/fondo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+.contenedorLa h2 {
+  font-size: 4rem;
+  color: white;
+}

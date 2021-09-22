@@ -1,0 +1,19 @@
+.contenedor {
+  border: black solid 1px;
+  border-radius: 20%;
+  width: 40%;
+  height: 20rem;
+  text-align: center;
+  margin-left: 23rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.contenedor figure img {
+  width: 100% !important;
+  height: 100% !important;
+}
+.contenedor figure {
+  width: 60% !important;
+  height: 40% !important;
+  text-align: center;
+}
