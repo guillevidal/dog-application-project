@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { API_KEY } = process.env;
-const { Raza } = require("../db");
+const { Raza, Temperamentos } = require("../db");
 const { Op } = require("sequelize");
 const axios = require("axios");
 const router = Router();
@@ -20,7 +20,24 @@ router.get("/", async function (req, res, next) {
     };
     return obj;
   });
-  let dogsDb = await Raza.findAll();
+  let dogsDb = await Raza.findAll({
+    include: {
+      model: Temperamentos,
+      attributes: ["name"],
+    },
+  });
+  dogsDb = dogsDb.map((el) => {
+    obj = {
+      id: el.id,
+      name: el.name,
+      height: el.height.metric,
+      weight: el.weight.metric,
+      life_span: el.life_span,
+      image: el.image.url,
+      // temperament: el.Temperaments.map((temp) => temp.name),
+    };
+    return obj;
+  });
   let allDogs = dogsApiMap.concat(dogsDb);
 
   try {
@@ -82,8 +99,9 @@ router.get("/:idRaza", async (req, res) => {
   let allDogs = dogsApiMap.concat(dogsDb);
 
   try {
-    if (!idRaza) {
-      res.send("EL PERRO CON ESE ID NO EXISTE");
+    if (idRaza.length > 4) {
+      let razaId = await Raza.findOne({ where: { id: idRaza } });
+      razaId && res.send(razaId);
     } else {
       for (let i = 0; i < allDogs.length - 1; i++) {
         if (allDogs[i].id == idRaza) {

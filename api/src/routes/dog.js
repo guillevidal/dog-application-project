@@ -1,30 +1,41 @@
 const axios = require("axios");
 const { Router } = require("express");
-const { Raza } = require("../db");
+const { Raza, Temperamentos } = require("../db");
 const router = Router();
+const { v4: uuidv4 } = require("uuid");
 
 router.post("/", async function (req, res) {
-  const { name, height, weight, life_span, image } = req.body;
+  const breed = req.body;
   try {
-    let createDog = await Raza.create(
+    const createDog = await Raza.create(
       {
-        name: name,
-        height: height,
-        weight: weight,
-        life_span: life_span,
-        image: image,
+        id: uuidv4(),
+        name: breed.name,
+        height: breed.height,
+        weight: breed.weight,
+        life_span: breed.life_span,
+        image: breed.image,
       },
-      { fields: ["name", "height", "weight", "life_span", "image"] }
+      { fields: ["id", "name", "height", "weight", "life_span", "image"] }
     );
-    if (createDog) {
-      return res.json({ createDog });
+
+    for (let i = 0; i < breed.temperament.length; i++) {
+      // let find = await Temperamentos.findOrCreate({
+      //   where: {
+      //     name: breed.temperament[i],
+      //   },
+      //   attributes: ["id"],
+      // });
+
+      let tempId = await Temperamentos.findOne({
+        where: { name: breed.temperament[i] },
+      });
+      await createDog.addTemperament(tempId.id);
     }
+
+    res.json(createDog);
   } catch (e) {
-    res
-      .status(500)
-      .send(
-        "NO PUDIMOS CREAR AL PERRITO MALVADO AGARRAS CARAVANA BASUUURA"
-      );
+    res.status(500).send("no se puedo crear al perro");
   }
 });
 

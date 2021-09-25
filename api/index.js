@@ -26,12 +26,26 @@ const { conn } = require("./src/db.js");
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
   let dogsApi = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
+    `https://api.thedogapi.com/v1/breeds?api_key=f3474742-5031-4de3-96d6-9424ee04e1c2`
   );
+  let array = [];
+  let arr = dogsApi.data.map((el) => {
+    return {
+      temperament: [el.temperament].join().split(","),
+    };
+  });
+  for (let j of arr) {
+    for (let i = 0; i < j.temperament.length; i++) {
+      array.push(j.temperament[i].trim());
+    }
+  }
+  const temperamentosF = [...new Set(array)];
+  const temperamentosFINAL = temperamentosF.sort();
+
   await Temperamentos.bulkCreate(
-    dogsApi.data &&
-      dogsApi.data.map((e) => ({
-        name: e.temperament,
+    temperamentosFINAL &&
+      temperamentosFINAL.map((e) => ({
+        name: e,
       }))
   );
   server.listen(3001, () => {

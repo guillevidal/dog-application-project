@@ -1,14 +1,14 @@
 import "./App.css";
 import React from "react";
 import { Route, Switch } from "react-router";
-import Landingpage from "./components/Dumbs/Landingpage/Landingpage";
-import Home from "./components/Dumbs/Home/Home.jsx";
-import BreedDetail from "./components/Dumbs/BreedDetail/BreedDetail";
-import CreateBreed from "./components/Dumbs/CreateBreed/CreateBreed";
-import Nav from "./components/Dumbs/Nav/Nav";
+import Landingpage from "./components/Landingpage/Landingpage";
+import Home from "./components/Home/Home";
+import BreedDetail from "./components/BreedDetail/BreedDetail";
+import CreateBreed from "./components/CreateBreed/CreateBreed";
+import Nav from "./components/Nav/Nav";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getBreeds } from "./actions";
+import { getBreeds } from "./Redux/actions";
 
 function App() {
   const dispatch = useDispatch();

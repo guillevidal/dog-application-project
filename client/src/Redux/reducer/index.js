@@ -1,7 +1,9 @@
-import { GET_BREEDS, GET_BREEDS_ID } from "../actions";
+import { GET_BREEDS, GET_BREEDS_ID, GET_BREEDS_NAME, CLEAN } from "../actions";
 
 const initialState = {
   breeds: [],
+  breedsDetail: [],
+  breedsName: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +12,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, breeds: action.payload };
     case GET_BREEDS_ID:
       return { ...state, breedsDetail: action.payload };
-
+    case GET_BREEDS_NAME:
+      return { ...state, breedsName: action.payload };
+    case CLEAN:
+      return { ...state, breedsName: action.payload };
     default:
       return state;
   }

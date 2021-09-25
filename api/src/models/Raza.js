@@ -26,8 +26,11 @@ module.exports = (sequelize) => {
       image: {
         type: DataTypes.STRING,
       },
+      id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+      },
     },
     { timestamps: false }
   );
 };
-
