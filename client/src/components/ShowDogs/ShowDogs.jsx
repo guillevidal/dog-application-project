@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./ShowDogs.css";
 import Breed from "../Breed/Breed";
+import Order from "../Order/Order";
 
 function ShowDogs() {
   const [currentPage, setcurrentPage] = useState(0);
@@ -43,6 +44,7 @@ function ShowDogs() {
   }
   return (
     <div>
+      <Order />
       <form>
         <h2>Filter</h2>
         <select name="filter" onChange={onChangeFil}>

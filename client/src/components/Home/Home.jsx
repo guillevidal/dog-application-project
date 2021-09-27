@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <Search name={name} setName={setName} />
-      <Order />
+
       {name === "" ? <ShowDogs /> : <ShowSearchDogs setName={setName} />}
     </div>
   );
