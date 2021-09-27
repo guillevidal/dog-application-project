@@ -12,8 +12,16 @@ function ShowDogs() {
     if (filtrado === "") {
       return breeds.slice(currentPage, currentPage + 8);
     } else {
-      let breedF = breeds.filter((el) => el.temperament?.includes(filtrado));
-      return breedF;
+      if (filtrado === "DB") {
+        let DB = breeds.filter((el) => typeof el.id === "string");
+        return DB.slice(currentPage, currentPage + 8);
+      } else if (filtrado === "API") {
+        let API = breeds.filter((el) => typeof el.id === "number");
+        return API.slice(currentPage, currentPage + 8);
+      } else {
+        let breedF = breeds.filter((el) => el.temperament?.includes(filtrado));
+        return breedF;
+      }
     }
   }
   function next() {
@@ -41,6 +49,11 @@ function ShowDogs() {
           {temperaments.map((el) => {
             return <option value={el.name}>{el.name}</option>;
           })}
+        </select>
+        <select onChange={onChangeFil}>
+          <option value="intro">Choose created or existing dogs</option>
+          <option value="DB">Dogs created</option>
+          <option value="API">Existing dogs</option>
         </select>
         <button onClick={onSubmit}>Clean Filter</button>
       </form>
