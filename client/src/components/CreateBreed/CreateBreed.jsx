@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { getTemperaments } from "../../Redux/actions";
+import { useSelector } from "react-redux";
 import "./CreateBreed.css";
 
 const CreateBreed = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getTemperaments());
-  }, []);
   const temperaments = useSelector((state) => state.temperaments);
   const [temp, setTemp] = useState([]);
   const [temps, setTemps] = useState([]);

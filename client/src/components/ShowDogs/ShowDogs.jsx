@@ -5,20 +5,45 @@ import Breed from "../Breed/Breed";
 
 function ShowDogs() {
   const [currentPage, setcurrentPage] = useState(0);
+  const [filtrado, setFiltrados] = useState("");
+  const temperaments = useSelector((state) => state.temperaments);
   const breeds = useSelector((state) => state.breeds);
   function Paginado() {
-    return breeds.slice(currentPage, currentPage + 8);
+    if (filtrado === "") {
+      return breeds.slice(currentPage, currentPage + 8);
+    } else {
+      let breedF = breeds.filter((el) => el.temperament?.includes(filtrado));
+      return breedF;
+    }
   }
   function next() {
-    setcurrentPage(currentPage + 8);
+    if (breeds.length > currentPage + 8) {
+      setcurrentPage(currentPage + 8);
+    }
   }
   function prev() {
     if (currentPage > 0) {
       setcurrentPage(currentPage - 8);
     }
   }
+  function onChangeFil({ target }) {
+    setFiltrados(target.value);
+  }
+  function onSubmit(e) {
+    e.preventDefault();
+    setFiltrados("");
+  }
   return (
     <div>
+      <form>
+        <h2>Filter</h2>
+        <select name="filter" onChange={onChangeFil}>
+          {temperaments.map((el) => {
+            return <option value={el.name}>{el.name}</option>;
+          })}
+        </select>
+        <button onClick={onSubmit}>Clean Filter</button>
+      </form>
       <div className="contenedorShowDogs">
         {Paginado().map((breed) => {
           return (

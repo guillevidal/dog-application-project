@@ -93,7 +93,6 @@ router.get("/", async function (req, res, next) {
 });
 
 router.get("/:id", async (req, res) => {
-  const { id } = req.params;
   let dogsApi = await axios.get(
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
@@ -109,9 +108,9 @@ router.get("/:id", async (req, res) => {
     };
     return obj;
   });
+  const { id } = req.params;
 
   try {
-    console.log(id);
     if (id.length > 4) {
       let razaId = await Raza.findByPk(id, { include: [Temperamentos] });
       let objte = {

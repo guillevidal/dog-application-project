@@ -7,12 +7,13 @@ import BreedDetail from "./components/BreedDetail/BreedDetail";
 import CreateBreed from "./components/CreateBreed/CreateBreed";
 import Nav from "./components/Nav/Nav";
 import { useDispatch } from "react-redux";
-import { getBreeds } from "./Redux/actions";
+import { getBreeds, getTemperaments } from "./Redux/actions";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBreeds());
+    dispatch(getTemperaments());
   }, []);
   return (
     <div className="App">

@@ -6,6 +6,7 @@ import {
   ASCENDING,
   DESCENDING,
   GET_TEMPERAMENTS,
+  FILTRADOS,
 } from "../actions";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   breedsDetail: [],
   breedsName: [],
   temperaments: [],
+  filtrados: [],
 };
 
 const reducer = (state = initialState, action) => {

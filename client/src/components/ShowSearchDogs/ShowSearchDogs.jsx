@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { clean } from "../../Redux/actions";
+import "./ShowSearchDogs.css";
 
 import Breed from "../Breed/Breed";
 
@@ -26,22 +25,25 @@ function ShowSearchDogs({ setName }) {
     setName("");
   }
   return (
-    <div classname="contenedorH">
-      <button onClick={prev}>Prev</button>
-      <button onClick={onSubmit}>Volver</button>
-      <button onClick={next}>Next</button>
-      {PaginadoBusqueda().map((breed) => {
-        return (
-          <Link className="Link" to={`/breedDetail/${breed.id}`}>
+    <div classname="contenedorSearchShowDogs">
+      <div>
+        <button onClick={prev}>Prev</button>
+        <button onClick={onSubmit}>Volver</button>
+        <button onClick={next}>Next</button>
+      </div>
+      <div>
+        {PaginadoBusqueda().map((breed) => {
+          return (
             <Breed
               name={breed?.name}
               weight={breed?.weight}
               temperament={breed?.temperament}
               image={breed?.image}
+              id={breed?.id}
             />
-          </Link>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

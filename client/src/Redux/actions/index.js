@@ -6,6 +6,7 @@ export const CLEAN = "CLEAN";
 export const ASCENDING = "ASCENDING";
 export const DESCENDING = "DESCENDING";
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
+export const FILTRADOS = "FILTRADOS";
 
 //---------------------Obetner las razas, para cargarlo en el estado-------------
 export function getBreeds() {

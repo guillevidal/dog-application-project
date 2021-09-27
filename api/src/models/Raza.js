@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       id: {
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
         primaryKey: true,
       },
     },
