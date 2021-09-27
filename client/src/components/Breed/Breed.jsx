@@ -7,11 +7,11 @@ const Breed = ({ name, weight, temperament, image, id }) => {
     <div className="contenedorB">
       <Link className="Link" to={`/breedDetail/${id}`}>
         <figure>
-          <img src={image} alt="" />
+          <img src={image} alt={name} />
         </figure>
         <h2>{name}</h2>
         <p>
-          <strong>Weight: {weight} kg</strong>{" "}
+          <strong>Weight: {weight} kg</strong>
         </p>
         <p>
           <strong>Temperament: </strong> {temperament}

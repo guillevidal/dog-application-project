@@ -14,31 +14,32 @@ router.get("/", async function (req, res, next) {
     obj = {
       id: el.id,
       name: el.name,
+      height: el.height.metric,
       weight: el.weight.metric,
-      temperament: el.temperament,
+      life_span: el.life_span,
       image: el.image.url,
+      temperament: el.temperament,
     };
     return obj;
   });
   let dogsDb = await Raza.findAll({
     include: {
       model: Temperamentos,
-      attributes: ["name"],
     },
   });
-  dogsDb = dogsDb.map((el) => {
+  let dogsDbe = dogsDb.map((el) => {
     obj = {
       id: el.id,
       name: el.name,
-      height: el.height.metric,
-      weight: el.weight.metric,
+      height: el.height,
+      weight: el.weight,
       life_span: el.life_span,
       image: el.image,
       temperament: el.temperamentos.map((temp) => temp.name).join(", "),
     };
     return obj;
   });
-  let allDogs = dogsApiMap.concat(dogsDb);
+  let allDogs = dogsApiMap.concat(dogsDbe);
 
   try {
     if (name) {
@@ -50,9 +51,11 @@ router.get("/", async function (req, res, next) {
         obj = {
           id: el.id,
           name: el.name,
+          height: el.height.metric,
           weight: el.weight.metric,
-          temperament: el.temperament,
+          life_span: el.life_span,
           image: `https://cdn2.thedogapi.com/images/${el.reference_image_id}.jpg`,
+          temperament: el.temperament,
         };
         return obj;
       });
@@ -62,24 +65,35 @@ router.get("/", async function (req, res, next) {
             [Op.iLike]: `%${name}%`,
           },
         },
+        include: {
+          model: Temperamentos,
+          attributes: ["name"],
+        },
       });
-      res.json(busquedaPerrosApi.concat(consulta));
+      let consultaA = consulta.map((el) => {
+        objte = {
+          id: el.id,
+          name: el.name,
+          height: el.height,
+          weight: el.weight,
+          life_span: el.life_span,
+          image: el.image,
+          temperament: el.temperamentos.map((temp) => temp.name).join(", "),
+        };
+        return objte;
+      });
+
+      res.json(busquedaPerrosApi.concat(consultaA));
     } else {
       res.json(allDogs);
-      // for (let i = 0; i < allDogs.length; i++) {
-      //   if (allDogs[i].name == name) {
-      //     let mostrar = allDogs[i];
-      //     res.json(mostrar);
-      //   }
-      // }
     }
   } catch (error) {
     res.status(400).send(error);
   }
 });
 
-router.get("/:idRaza", async (req, res) => {
-  const { idRaza } = req.params;
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
   let dogsApi = await axios.get(
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   );
@@ -95,17 +109,25 @@ router.get("/:idRaza", async (req, res) => {
     };
     return obj;
   });
-  let dogsDb = await Raza.findAll();
-  let allDogs = dogsApiMap.concat(dogsDb);
 
   try {
-    if (idRaza.length > 4) {
-      let razaId = await Raza.findOne({ where: { id: idRaza } });
-      razaId && res.send(razaId);
+    console.log(id);
+    if (id.length > 4) {
+      let razaId = await Raza.findByPk(id, { include: [Temperamentos] });
+      let objte = {
+        id: razaId.id,
+        name: razaId.name,
+        height: razaId.height,
+        weight: razaId.weight,
+        life_span: razaId.life_span,
+        image: razaId.image,
+        temperament: razaId.temperamentos.map((temp) => temp.name).join(", "),
+      };
+      objte && res.send(objte);
     } else {
-      for (let i = 0; i < allDogs.length - 1; i++) {
-        if (allDogs[i].id == idRaza) {
-          let mostrar = allDogs[i];
+      for (let i = 0; i < dogsApiMap.length - 1; i++) {
+        if (dogsApiMap[i].id == id) {
+          let mostrar = dogsApiMap[i];
           res.send(mostrar);
         }
       }
@@ -116,15 +138,3 @@ router.get("/:idRaza", async (req, res) => {
 });
 
 module.exports = router;
-
-/*   let { name } = req.query;
-  try {
-    if (name) {
-      let queryName = await Raza.findAll({
-        where: { name: { [Op.iLike]: `%${name}%` } },
-      });
-      res.json(queryName);
-    } else {
-      let queryAll = await Raza.findAll();
-      res.json(queryAll);
-    } */

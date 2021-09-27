@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getBreedsId } from "../../Redux/actions";
-import { useSelector } from "react-redux";
 
 const BreedDetail = () => {
   const { id } = useParams();
@@ -15,7 +13,7 @@ const BreedDetail = () => {
   return (
     <section>
       <figure>
-        <img src={detail.image} alt="" />
+        <img src={detail.image} alt={detail.name} />
       </figure>
       <h1>{detail.name}</h1>
       <p>Life span: {detail.life_span}</p>

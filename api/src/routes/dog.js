@@ -20,13 +20,6 @@ router.post("/", async function (req, res) {
     );
 
     for (let i = 0; i < breed.temperament.length; i++) {
-      // let find = await Temperamentos.findOrCreate({
-      //   where: {
-      //     name: breed.temperament[i],
-      //   },
-      //   attributes: ["id"],
-      // });
-
       let tempId = await Temperamentos.findOne({
         where: { name: breed.temperament[i] },
       });

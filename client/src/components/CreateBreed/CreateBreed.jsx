@@ -11,6 +11,7 @@ const CreateBreed = () => {
   }, []);
   const temperaments = useSelector((state) => state.temperaments);
   const [temp, setTemp] = useState([]);
+  const [temps, setTemps] = useState([]);
   const [breed, setBreed] = useState({
     name: "",
     life_span: "",
@@ -26,8 +27,11 @@ const CreateBreed = () => {
     });
   }
   function onInputChangeTemperaments({ target }) {
-    setTemp([...temp, target.value]);
+    setTemp(breed.temperament.push(target.value));
   }
+  /* function onInputChangeTemperamentShow({ target }) {
+    setTemps([...temps, target.value]);
+  } */
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,7 +42,7 @@ const CreateBreed = () => {
     let temps = temp.filter((el) => el !== temp[key]);
     setTemp(temps);
   }
-  console.log(temp);
+  console.log(breed);
   return (
     <form className="CreateDogsForm">
       <label>
@@ -104,8 +108,8 @@ const CreateBreed = () => {
           return <option value={el.name}>{el.name}</option>;
         })}
       </select>
-      <div className="filter-selected">
-        {temp.map((el, index) => (
+      {/*  <div className="filter-selected">
+        {temps.map((el, index) => (
           <div key={el}>
             <span className="headers">{el}</span>
             <button
@@ -117,7 +121,7 @@ const CreateBreed = () => {
             </button>
           </div>
         ))}
-      </div>
+      </div> */}
       <input type="submit" onClick={handleSubmit} />
     </form>
   );

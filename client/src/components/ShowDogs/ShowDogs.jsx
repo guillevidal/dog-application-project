@@ -27,7 +27,7 @@ function ShowDogs() {
               weight={breed?.weight}
               temperament={breed?.temperament}
               image={breed?.image}
-              id={breed.id}
+              id={breed?.id}
             />
           );
         })}
