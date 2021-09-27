@@ -3,6 +3,9 @@ export const GET_BREEDS = "GET_BREEDS";
 export const GET_BREEDS_ID = "GET_BREEDS_ID";
 export const GET_BREEDS_NAME = "GET_BREEDS_NAME";
 export const CLEAN = "CLEAN";
+export const ASCENDING = "ASCENDING";
+export const DESCENDING = "DESCENDING";
+export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS";
 
 //---------------------Obetner las razas, para cargarlo en el estado-------------
 export function getBreeds() {
@@ -37,10 +40,28 @@ export function getBreedsName(name) {
     });
   };
 }
-//-------------------------
+//-------------------------limpiar la el componente de la busqueda anterior --------
 export function clean() {
   return {
     type: CLEAN,
     payload: [],
+  };
+}
+//------------------------Ordenamiento------------------
+export function orderBy(order, category) {
+  return {
+    type: order === "ascending" ? ASCENDING : DESCENDING,
+    payload: category,
+  };
+}
+//--------------obtener los temperamentos----------------
+export function getTemperaments() {
+  return (dispatch) => {
+    return axios.get("http://localhost:3001/temperament").then((obj) => {
+      dispatch({
+        type: GET_TEMPERAMENTS,
+        payload: obj.data,
+      });
+    });
   };
 }

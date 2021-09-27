@@ -1,19 +1,36 @@
-.contenedor {
-  border: black solid 1px;
-  border-radius: 20%;
-  width: 40%;
-  height: 20rem;
-  text-align: center;
-  margin-left: 23rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+.contenedorB {
+  width: 27rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 4px;
+  border-radius: 0.5rem;
+  display: inline-block;
 }
-.contenedor figure img {
-  width: 100% !important;
-  height: 100% !important;
+.contenedorB figure img {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 1rem;
 }
-.contenedor figure {
-  width: 60% !important;
-  height: 40% !important;
-  text-align: center;
+.contenedorB figure {
+  width: 50% !important;
+  height: 50% !important;
+  float: left;
+  padding-top: 1rem;
+}
+.contenedorB h2 {
+  padding-top: 1rem;
+}
+.contenedorB p {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.contenedorB a {
+  text-decoration: none;
+  color: #09b4e8;
+}
+.contenedorB:hover {
+  transform: scale(1.02);
 }

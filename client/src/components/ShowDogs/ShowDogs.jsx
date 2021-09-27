@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import "./ShowDogs.css";
 import Breed from "../Breed/Breed";
 
 function ShowDogs() {
@@ -18,21 +18,24 @@ function ShowDogs() {
     }
   }
   return (
-    <div classname="contenedorH">
-      {Paginado().map((breed) => {
-        return (
-          <Link className="Link" to={`/breedDetail/${breed.id}`}>
+    <div>
+      <div className="contenedorShowDogs">
+        {Paginado().map((breed) => {
+          return (
             <Breed
               name={breed?.name}
               weight={breed?.weight}
               temperament={breed?.temperament}
               image={breed?.image}
+              id={breed.id}
             />
-          </Link>
-        );
-      })}
-      <button onClick={prev}>Prev</button>
-      <button onClick={next}>Next</button>
+          );
+        })}
+      </div>
+      <div>
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
+      </div>
     </div>
   );
 }

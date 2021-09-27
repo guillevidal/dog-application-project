@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Nav.css";
 
 const Nav = () => {
   return (
-    <nav>
-      <h2>Soy el </h2>
-      <Link exact to="/home">
+    <nav className="conteiner-nav">
+      <Link className="btn-nav" exact to="/home">
         Home
       </Link>
 
-      <Link exact to="/createBreed">
+      <Link className="btn-nav" exact to="/createBreed">
         Create Breed
       </Link>
     </nav>

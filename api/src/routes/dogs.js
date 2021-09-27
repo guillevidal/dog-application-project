@@ -33,8 +33,8 @@ router.get("/", async function (req, res, next) {
       height: el.height.metric,
       weight: el.weight.metric,
       life_span: el.life_span,
-      image: el.image.url,
-      // temperament: el.Temperaments.map((temp) => temp.name),
+      image: el.image,
+      temperament: el.temperamentos.map((temp) => temp.name).join(", "),
     };
     return obj;
   });

@@ -1,0 +1,26 @@
+.searchInput {
+  padding: 10px;
+  box-shadow: #1bcf9f 0px 1px 4px 1px;
+  border-radius: 3px;
+  border: none;
+  width: 20%;
+  margin-top: 1rem;
+}
+.searchInput:focus {
+  outline: none;
+}
+
+/* input sumbit*/
+.searchButton {
+  border: 2px solid #1bcf9f;
+  border-radius: 10px;
+  height: 100%;
+  color: black;
+  padding: 10px 12px;
+  margin-left: 20px;
+  background-color: white;
+}
+.searchButton:hover {
+  background-color: #09b4e8;
+  transition: 1s;
+}

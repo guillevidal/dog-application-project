@@ -1,0 +1,5 @@
+.contenedorShowDogs {
+  display: inline-block;
+  columns: 2;
+  width: 80%;
+}

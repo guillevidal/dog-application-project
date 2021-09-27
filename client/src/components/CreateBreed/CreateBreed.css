@@ -1,0 +1,14 @@
+.CreateDogsForm {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-top: 6rem;
+  margin-left: 32rem;
+}
+.CreateDogsForm input {
+  box-shadow: #1bcf9f 0px 1px 4px 1px;
+}
+
+.CreateDogsForm label {
+  margin-top: 1rem;
+}

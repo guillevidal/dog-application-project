@@ -30,7 +30,7 @@ router.post("/", async function (req, res) {
       let tempId = await Temperamentos.findOne({
         where: { name: breed.temperament[i] },
       });
-      await createDog.addTemperament(tempId.id);
+      await createDog.addTemperamentos(tempId.id);
     }
 
     res.json(createDog);
