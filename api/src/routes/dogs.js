@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { API_KEY } = process.env;
+//const { API_KEY } = process.env;
 const { Raza, Temperamentos } = require("../db");
 const { Op } = require("sequelize");
 const axios = require("axios");
@@ -8,7 +8,7 @@ const router = Router();
 router.get("/", async function (req, res, next) {
   let { name } = req.query;
   let dogsApi = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
+    `https://api.thedogapi.com/v1/breeds?api_key=f3474742-5031-4de3-96d6-9424ee04e1c2`
   );
   let dogsApiMap = dogsApi.data.map((el) => {
     obj = {
@@ -94,7 +94,7 @@ router.get("/", async function (req, res, next) {
 
 router.get("/:id", async (req, res) => {
   let dogsApi = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
+    `https://api.thedogapi.com/v1/breeds?api_key=f3474742-5031-4de3-96d6-9424ee04e1c2`
   );
   let dogsApiMap = dogsApi.data.map((el) => {
     obj = {
