@@ -41,11 +41,13 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           breeds: [...state.breeds].sort((a, b) => {
-            const arrayA = a.weight.split(" - ");
-            const arrayB = b.weight.split(" - ");
+            let arrayA = a.weight.split(" - ");
+            let arrayB = b.weight.split(" - ");
+            let sumArrayA = parseInt(arrayA[0]) + parseInt(arrayA[1]);
+            let sumArrayB = parseInt(arrayB[0]) + parseInt(arrayB[1]);
 
-            const promedioA = (arrayA[0] + arrayA[1] ? arrayA[1] : 0) / 2;
-            const promedioB = (arrayB[0] + arrayB[1] ? arrayB[1] : 0) / 2;
+            let promedioA = sumArrayA ? sumArrayA / 2 : parseInt(arrayA[0]);
+            let promedioB = sumArrayB ? sumArrayB / 2 : parseInt(arrayB[0]);
 
             return promedioA > promedioB ? 1 : -1;
           }),
@@ -65,13 +67,15 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           breeds: [...state.breeds].sort((a, b) => {
-            const arrayA = a.weight.split(" - ");
-            const arrayB = b.weight.split(" - ");
+            let arrayA = a.weight.split(" - ");
+            let arrayB = b.weight.split(" - ");
+            let sumArrayA = parseInt(arrayA[0]) + parseInt(arrayA[1]);
+            let sumArrayB = parseInt(arrayB[0]) + parseInt(arrayB[1]);
 
-            const promedioA = (arrayA[0] + arrayA[1] ? arrayA[1] : 0) / 2;
-            const promedioB = (arrayB[0] + arrayB[1] ? arrayB[1] : 0) / 2;
+            let promedioA = sumArrayA ? sumArrayA / 2 : parseInt(arrayA[0]);
+            let promedioB = sumArrayB ? sumArrayB / 2 : parseInt(arrayB[0]);
 
-            return promedioA > promedioB ? -1 : 1;
+            return promedioA < promedioB ? 1 : -1;
           }),
         };
       }

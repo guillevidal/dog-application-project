@@ -1,5 +1,16 @@
 .contenedorSearchShowDogs {
-  display: inline-block;
+  display: block;
   columns: 2;
-  width: 80%;
+  width: 87%;
+  margin: 0 auto;
+}
+.contenedorInputSearchShowDogs button {
+  margin-top: 1rem;
+  border: 2px solid #e8e072;
+  border-radius: 10px;
+  height: 100%;
+  color: black;
+  padding: 10px 12px;
+  margin-left: 20px;
+  background-color: white;
 }

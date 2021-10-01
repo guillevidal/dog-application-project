@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { orderBy } from "../../Redux/actions";
+import "./Order.css";
 
 function Order() {
   const [category, setCategory] = useState("alphabetic");
@@ -12,21 +13,18 @@ function Order() {
   }
 
   function onChangeOr({ target }) {
-    if (target.value === order) {
-      setOrder(target.value);
-    } else {
-      setOrder(target.value);
-    }
+    setOrder(target.value);
   }
+
   function onSubmit(e) {
     e.preventDefault();
     dispatch(orderBy(order, category));
   }
   console.log(order, category);
   return (
-    <form>
-      <h2>Order</h2>
-      <select name="order" onChange={onChangeCat}>
+    <form className="conteinerInput">
+      <h3>Order</h3>
+      <select name="category" onChange={onChangeCat}>
         <option value="alphabetic">Alphabetic</option>
         <option value="weight">Weight</option>
       </select>

@@ -2,13 +2,69 @@
   display: flex;
   flex-direction: column;
   width: 25%;
-  margin-top: 6rem;
-  margin-left: 32rem;
+  margin-top: 0;
 }
 .CreateDogsForm input {
-  box-shadow: #1bcf9f 0px 1px 4px 1px;
+  box-shadow: #e8e072 0px 1px 4px 1px;
+  border: none;
+  height: 1.5rem;
 }
 
 .CreateDogsForm label {
   margin-top: 1rem;
+}
+.CreateDogsForm input:focus {
+  outline: none;
+}
+
+.createButtom {
+  border: 2px solid #e8e072;
+  border-radius: 10px;
+  height: 2rem;
+  color: black;
+
+  margin-left: 20px;
+  background-color: white;
+  width: 6rem;
+  margin: 0 auto;
+}
+.createButtom:hover {
+  background-color: #e8e072;
+  transition: 1s;
+}
+.contenedorCreateDog {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 4px;
+  margin: 0.8rem;
+  border-radius: 1rem;
+}
+.inputSelectCreate {
+  border: none;
+  box-shadow: #e8e072 0px 1px 4px 1px;
+  height: 1.5rem;
+  margin: 0.5rem;
+}
+.inputSelectCreate:focus {
+  outline: none;
+}
+
+.CreateDogsForm p {
+  color: red;
+  font-size: 0.8rem;
+}
+.temperamentSelected {
+  background-color: #e8e072;
+}
+.conteinerTemperamentSelected {
+  display: flex;
+  flex-wrap: wrap;
+}
+.btnCloseTemperamentSelected {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  margin-left: 0.1rem;
+  font-size: 1rem;
 }

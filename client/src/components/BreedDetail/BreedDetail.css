@@ -1,0 +1,18 @@
+.conteinerBreedDetail {
+  margin: 1rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 4px;
+  display: flex;
+  border-radius: 0.5rem;
+}
+.conteinerBreedDetail figure img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+}
+.conteinerInfoBreedDetail p {
+  margin-top: 0.2rem;
+}
+.conteinerInfoBreedDetail {
+  width: 80%;
+}

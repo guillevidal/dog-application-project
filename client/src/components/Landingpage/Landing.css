@@ -3,7 +3,7 @@
   margin: 0;
 }
 .Landing {
-  background-image: url("./img/fondo.png");
+  background-image: url("../../img/landing.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -14,22 +14,22 @@
 .titleLanding {
   margin-top: 5%;
   font-size: 3rem;
-  color: #09b4e8;
-  text-shadow: 0px 0px 10px lightpink, 0px 0px 50px lightpink;
+  color: black;
+  text-shadow: 0px 0px 10px black;
 }
 .boton-landing {
   margin-top: 5%;
-  color: #09b4e8;
+  color: black;
   font-size: 20px;
   text-decoration: none;
-  border: 3px solid #09B4E8#0d664e;
+  border: 3px solid black;
   border-radius: 1rem;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   padding-left: 1px;
-  margin-left: 44%;
+  margin-left: 45%;
   width: 8%;
 }
 .boton-landing:hover {
-  background-color: #1bcf9f;
-  transition: 1s;
+  background-color: white;
+  transition: 0.5s;
 }

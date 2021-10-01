@@ -1,5 +1,61 @@
 .contenedorShowDogs {
   display: inline-block;
   columns: 2;
-  width: 80%;
+  width: 87%;
+}
+.inputNextShowDogs {
+  border: 2px solid #e8e072;
+  border-radius: 10px;
+  height: 100%;
+  color: black;
+  padding: 10px 12px;
+  margin-left: 20px;
+  background-color: white;
+}
+.inputNextShowDogs:hover {
+  background-color: #e8e072;
+  transition: 1s;
+}
+
+.inputPrevShowDogs {
+  border: 2px solid #e8e072;
+  border-radius: 10px;
+  height: 100%;
+  color: black;
+  padding: 10px 12px;
+  margin-left: 20px;
+  background-color: white;
+}
+.inputPrevShowDogs:hover {
+  background-color: #e8e072;
+  transition: 1s;
+}
+
+.contenedorBotonesShowDogs {
+  margin-bottom: 1rem;
+}
+
+.formFilterShowDos select {
+  border: none;
+  box-shadow: #e8e072 0px 1px 4px 1px;
+  height: 1.5rem;
+  margin: 0.5rem;
+  box-shadow: #e8e072 0px 1px 4px 1px;
+}
+.formFilterShowDos button {
+  border: 2px solid #e8e072;
+  border-radius: 10px;
+  height: 2rem;
+  color: black;
+  margin-left: 20px;
+  background-color: white;
+  width: 6rem;
+  margin: 0 auto;
+}
+.formFilterShowDos button:hover {
+  background-color: #e8e072;
+  transition: 1s;
+}
+.formFilterShowDos {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }

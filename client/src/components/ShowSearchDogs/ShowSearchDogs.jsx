@@ -10,7 +10,9 @@ function ShowSearchDogs({ setName }) {
   const searchBreeds = useSelector((state) => state.breedsName);
   const [currentPage, setcurrentPage] = useState(0);
   function next() {
-    setcurrentPage(currentPage + 8);
+    if (searchBreeds.length > currentPage + 8) {
+      setcurrentPage(currentPage + 8);
+    }
   }
   function prev() {
     if (currentPage > 0) {
@@ -25,13 +27,13 @@ function ShowSearchDogs({ setName }) {
     setName("");
   }
   return (
-    <div classname="contenedorSearchShowDogs">
-      <div>
-        <button onClick={prev}>Prev</button>
-        <button onClick={onSubmit}>Volver</button>
-        <button onClick={next}>Next</button>
+    <div>
+      <div className="contenedorInputSearchShowDogs">
+        <button onClick={prev}>←</button>
+        <button onClick={onSubmit}>Back</button>
+        <button onClick={next}>→</button>
       </div>
-      <div>
+      <div className="contenedorSearchShowDogs">
         {PaginadoBusqueda().map((breed) => {
           return (
             <Breed

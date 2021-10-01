@@ -12,13 +12,16 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 0.2rem;
-  border: 2px solid #1bcf9f;
+  border: 2px solid #f3ff8a;
   margin-left: 1rem;
   margin-right: 1rem;
   border-radius: 1rem;
 }
 .btn-nav:hover {
-  background-color: #09b4e8;
+  background-color: #e8e072;
   transition: 0.5s;
   transform: scale(1.01);
+}
+.btn-nav:focus {
+  background-color: #e8e072;
 }

@@ -10,7 +10,7 @@ const Search = ({ name, setName }) => {
   }
   function onSubmit(e) {
     dispatch(getBreedsName(name));
-    alert("buscando");
+    alert(`Buscando a ${name}...`);
   }
 
   return (

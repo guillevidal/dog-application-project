@@ -6,6 +6,8 @@
   box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 4px 4px;
   border-radius: 0.5rem;
   display: inline-block;
+  opacity: 0.85;
+  background-color: #ffe770;
 }
 .contenedorB figure img {
   width: 13rem;
@@ -29,8 +31,10 @@
 
 .contenedorB a {
   text-decoration: none;
-  color: #09b4e8;
+  color: black;
 }
 .contenedorB:hover {
   transform: scale(1.02);
+  opacity: 1;
+  transition: 0.3s;
 }

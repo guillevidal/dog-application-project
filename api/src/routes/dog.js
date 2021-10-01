@@ -1,4 +1,3 @@
-const axios = require("axios");
 const { Router } = require("express");
 const { Raza, Temperamentos } = require("../db");
 const router = Router();
@@ -19,16 +18,23 @@ router.post("/", async function (req, res) {
       { fields: ["id", "name", "height", "weight", "life_span", "image"] }
     );
 
-    for (let i = 0; i < breed.temperament.length; i++) {
+    /*    for (let i = 0; i < breed.temperament.length; i++) {
       let tempId = await Temperamentos.findOne({
         where: { name: breed.temperament[i] },
       });
       await createDog.addTemperamentos(tempId.id);
-    }
+    } */
+    let tempPromise = await Promise.all(
+      breed.temperament.map((el) =>
+        Temperamentos.findOne({ where: { name: el } })
+      )
+    );
+
+    createDog.setTemperamentos(tempPromise);
 
     res.json(createDog);
   } catch (e) {
-    res.status(500).send("no se puedo crear al perro");
+    res.status(400).send("no se puedo crear al perro");
   }
 });
 

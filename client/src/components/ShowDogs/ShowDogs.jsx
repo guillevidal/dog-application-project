@@ -9,24 +9,26 @@ function ShowDogs() {
   const [filtrado, setFiltrados] = useState("");
   const temperaments = useSelector((state) => state.temperaments);
   const breeds = useSelector((state) => state.breeds);
+  var arr = breeds.slice(currentPage, currentPage + 8);
   function Paginado() {
-    if (filtrado === "") {
-      return breeds.slice(currentPage, currentPage + 8);
+    /* if (filtrado === "") {
+      arr = breeds.slice(currentPage, currentPage + 8);
+      return arr; */
+    /*  } else { */
+    if (filtrado === "DB") {
+      arr = breeds.filter((el) => typeof el.id === "string");
+      return arr.slice(currentPage, currentPage + 8);
+    } else if (filtrado === "API") {
+      arr = breeds.filter((el) => typeof el.id === "number");
+      return arr.slice(currentPage, currentPage + 8);
     } else {
-      if (filtrado === "DB") {
-        let DB = breeds.filter((el) => typeof el.id === "string");
-        return DB.slice(currentPage, currentPage + 8);
-      } else if (filtrado === "API") {
-        let API = breeds.filter((el) => typeof el.id === "number");
-        return API.slice(currentPage, currentPage + 8);
-      } else {
-        let breedF = breeds.filter((el) => el.temperament?.includes(filtrado));
-        return breedF;
-      }
+      arr = breeds.filter((el) => el.temperament?.includes(filtrado));
+      return arr.slice(currentPage, currentPage + 8);
     }
   }
+  /*  } */
   function next() {
-    if (breeds.length > currentPage + 8) {
+    if (arr.length > currentPage + 8) {
       setcurrentPage(currentPage + 8);
     }
   }
@@ -45,8 +47,8 @@ function ShowDogs() {
   return (
     <div>
       <Order />
-      <form>
-        <h2>Filter</h2>
+      <form className="formFilterShowDos">
+        <h3>Filter</h3>
         <select name="filter" onChange={onChangeFil}>
           {temperaments.map((el) => {
             return <option value={el.name}>{el.name}</option>;
@@ -63,6 +65,7 @@ function ShowDogs() {
         {Paginado().map((breed) => {
           return (
             <Breed
+              key={breed?.id}
               name={breed?.name}
               weight={breed?.weight}
               temperament={breed?.temperament}
@@ -72,9 +75,13 @@ function ShowDogs() {
           );
         })}
       </div>
-      <div>
-        <button onClick={prev}>Prev</button>
-        <button onClick={next}>Next</button>
+      <div className="contenedorBotonesShowDogs">
+        <button className="inputPrevShowDogs" onClick={prev}>
+          ←
+        </button>
+        <button className="inputNextShowDogs" onClick={next}>
+          →
+        </button>
       </div>
     </div>
   );

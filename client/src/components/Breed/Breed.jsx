@@ -4,7 +4,7 @@ import "./Breed.css";
 
 const Breed = ({ name, weight, temperament, image, id }) => {
   return (
-    <div className="contenedorB">
+    <div className="contenedorB" key={id}>
       <Link className="Link" to={`/breedDetail/${id}`}>
         <figure>
           <img src={image} alt={name} />
