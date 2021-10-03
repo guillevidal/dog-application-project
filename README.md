@@ -12,7 +12,7 @@
 
 
 ## Descripcion del proyecto :
-Es una SPA (single page application) creada como proyecto individual para el bootcamp "Soy Henry" ,que permite ver entre la razas existentes de perros y te permite crear razas nuevas. 
+Es una SPA (single page application) creada como proyecto individual para el bootcamp <a href="https://www.soyhenry.com/"> Soy Henry</a> ,que permite ver entre la razas existentes de perros y te permite crear razas nuevas. 
 #### Contiene una landing page
 #### Una pagina "Home" que contiene:
 - un paginado para poder ver de a 8 perros
