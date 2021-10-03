@@ -13,8 +13,8 @@
 
 ## Descripcion del proyecto :
 Es una SPA (single page application) creada como proyecto individual para el bootcamp "Soy Henry" ,que permite ver entre la razas existentes de perros y te permite crear razas nuevas. 
-Contiene una landing page
-Una pagina "Home" que contiene:
+#### Contiene una landing page
+#### Una pagina "Home" que contiene:
     <li>un paginado para poder ver de a 8 perros</li>
         <li>una barra de busqueda </li>
         <li>opciones de ordenamiento de forma alfabetica de forma ascendete y descendente</li>
@@ -22,10 +22,10 @@ Una pagina "Home" que contiene:
         </li>
         <li>opcion de filtrado por raza, opcion de filtrado por perro creado o raza de perro existente
         </li>
-Una pagina pagina "Breed Detail":
-*permite ver los detalles de la raza seleccionada 
+#### Una pagina pagina "Breed Detail":
+<li>permite ver los detalles de la raza seleccionada </li>
 
-#### Base de datos
+### Base de datos
 
 El modelo de la base de datos tiene las siguientes entidades:
 
@@ -40,7 +40,7 @@ El modelo de la base de datos tiene las siguientes entidades:
   - Nombre
 
 
-#### Backend
+### Backend
 
 Se desarrollo un servidor en Node/Express con las siguientes rutas:
 
