@@ -15,15 +15,15 @@
 Es una SPA (single page application) creada como proyecto individual para el bootcamp "Soy Henry" ,que permite ver entre la razas existentes de perros y te permite crear razas nuevas. 
 #### Contiene una landing page
 #### Una pagina "Home" que contiene:
-    <li>un paginado para poder ver de a 8 perros</li>
-        <li>una barra de busqueda </li>
-        <li>opciones de ordenamiento de forma alfabetica de forma ascendete y descendente</li>
-        <li>opciones de ordenamiento por peso de forma ascendente y descendente
-        </li>
-        <li>opcion de filtrado por raza, opcion de filtrado por perro creado o raza de perro existente
-        </li>
+    - un paginado para poder ver de a 8 perros
+        - una barra de busqueda 
+       - opciones de ordenamiento de forma alfabetica de forma ascendete y descendente
+       - opciones de ordenamiento por peso de forma ascendente y descendente
+        
+        opcion de filtrado por raza, opcion de filtrado por perro creado o raza de perro existente
+        
 #### Una pagina pagina "Breed Detail":
-<li>permite ver los detalles de la raza seleccionada </li>
+- permite ver los detalles de la raza seleccionada 
 
 ### Base de datos
 
