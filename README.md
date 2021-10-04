@@ -10,6 +10,7 @@
 
 - Construir una App utlizando React, Redux, Node y Sequelize- Postgres.
 
+ para ver una demo del proyecto<a href="https://www.linkedin.com/feed/update/urn:li:activity:6850597010282725376/"> AQUI</a> (proximamente deploy)
 
 ## Descripcion del proyecto :
 Es una SPA (single page application) creada como proyecto individual para el bootcamp <a href="https://www.soyhenry.com/"> Soy Henry</a> ,que permite ver entre la razas existentes de perros y te permite crear razas nuevas. 
